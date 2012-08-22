@@ -1,0 +1,56 @@
+
+REF: http://swish-e.org/index.html
+
+Create a database:
+SWISH_E/local/bin/swish-e -c SWISH_E/local/config/swish-e.conf
+
+Search web site:
+https://icxc.harvard.edu/cus/MAIL/swish.cgi
+
+The cron job is run on rhodes as cus:
+
+0 4 1,5,10,15,20,25 * * cd /data/mta4/CUS/www/MAIL; /data/mta/MTA/bin/swish_wrap_script > $HOME/Logs/swish_run 2>&1
+
+
+###########
+Directories
+###########
+
+SWHISH_Script
+=============
+
+swish_run.perl
+-------------
+This script manage swish_e, word database. Run by cron job.
+
+swish_wrap_script and swish_main_script
+----------------------------------------
+These are control scripts for swish_run.perl Run by cron job.
+
+Copies of these scripts are kept in /data/mta/MTA/bin/
+When you run gmake to save the script to /data/mta/MTA/bin/, you must be mta, not cus,
+but when you run the script, you must be cus.
+
+
+local
+=====
+
+bin: 		swish bin directory
+lib: 		swish library
+include: 	swish include file
+share:		swish  doc etc
+
+config:
+swish-e.conf controls database building criteria etc. See http://swish-e.org/docs/swish-config.html
+
+build
+=====
+the directory used to build the swish_e.
+
+swish-e-2.4.5.tar.gz
+====================
+the original tar file of the script
+
+@LongLink
+=========
+created by swish_e. ?????

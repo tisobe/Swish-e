@@ -1,0 +1,8 @@
+source /home/cus/.ascrc
+
+cd /data/mta4/CUS/www/MAIL/
+source /home/mta/bin/reset_param
+setenv PFILES "${PDIRS}"
+set path = (/home/ascds/DS.release/bin/  $path)
+
+perl /data/mta/MTA/bin/swish_run.perl 
