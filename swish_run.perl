@@ -2,11 +2,11 @@
 
 #################################################################################################
 #												#
-#	swish_run.perl: run swish-e to create serarch database					#
+#	swish_run.perl: run swish-e to create serarch database: TEST version			#
 #												#
 #		author: t. isobe (tisobe@cfa.harvard.edu)					#
 #												#
-#		last update: Oct 01, 2008							#
+#		last update: Mar 27, 2013							#
 #												#
 #################################################################################################
 
@@ -84,6 +84,13 @@ if($file2 =~ /head/){
         }
 }
 
+#----------------------------------------------------------------------------
+#--- REMOVE THE FOLLOWING TWO LINES WHEN THIS IS MOVED TO A LIVE VERSION!!!!!
+#----------------------------------------------------------------------------
+$file1_ok = 1;
+$file2_ok = 1;
+#----------------------------------------------------------------------------
+
 if($file1_ok > 0 && $file2_ok > 0){
 	$chk = 0;
 	OUTER:
@@ -117,7 +124,7 @@ $cus_email   = 'cus@head.cfa.harvard.edu';
 $admin_email = 'isobe@head.cfa.harvard.edu';
 
 if($chk == 0){
-	system("cat /data/mta4/CUS/www/MAIL/temp_mail_file  |mailx -s\"Subject: swish-e run may have problems\n\" -r$cus_email -c$cus_email  $admin_email");
+	system("cat /data/mta4/CUS/www/MAIL/temp_mail_file  |mailx -s\"Subject: swish-e run may have problems (linux)\n\" $admin_email");
 }else{
 	system("cat /data/mta4/CUS/www/MAIL/temp_mail_file  |mailx -s\"Subject: swish-e run: database updated\n\" -r$cus_email $admin_email");
 }
